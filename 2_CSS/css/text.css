@@ -1,0 +1,91 @@
+#ff1{font-family: "궁서체";}
+#ff2{font-family: "굴림체";}
+#ff3{font-family: "신우체","바탕체";}
+
+#web-font {
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#size{font-size: 30px;}
+
+#fw1{font-weight: bold;}
+#fw2{font-weight: lighter;}
+#fw3{font-weight: 900;}
+
+#fv{font-variant: small-caps;}
+
+#fs1{font-style: italic;}
+#fs2{font-style: oblique;}
+
+#f1{font: 30px "궁서체";}
+#f1{font: italic bold 20px "고딕체";}
+
+#c-name{color: red;}
+#c-16{color: #f00;}
+#c-rgb{color: rgb(255,0,0);}
+#c-rgba{color: rgba(255,0,0,0.2);}
+
+#td1{text-decoration: none;}
+#td2{text-decoration: underline;}
+#td3{text-decoration: line-through;}
+#td4{text-decoration: overline;}
+
+#tt1{text-transform: none;}
+#tt2{text-transform: capitalize;}
+#tt3{text-transform: uppercase;}
+#tt4{text-transform: lowercase;}
+
+#lh1{line-height: normal;}
+#lh2{line-height: 50px;}
+
+#bg{margin: 30px; padding:50px; background: black;}
+.shadow{font-size: 100px; line-height: 30px; font-weight: 900;}
+#ts1{color: orangered; text-shadow: -20px 20px 20px #fff;}
+#ts2{color: skyblue; text-shadow: -10px 20px 20px blue}
+#ts3{color: yellow; text-shadow: 0px 20px 20px yellowgreen;}
+#ts4{text-shadow: 0px 0px 4px #ccc,
+                  0px -5px 4px #ff3,
+                  2px -10px 6px #fd3,
+                  -2px -15px 11px #f80,
+                  2px -19px 18px #f20;}
+
+#space1{white-space: normal;}
+#space2{white-space: nowrap;}
+#space3{white-space: pre;}
+#space4{white-space: pre-line;}
+#space5{white-space: pre-wrap;}
+
+#spacing1{letter-spacing: 10px;}
+#spacing2{word-spacing: 10px;}
+
+#d1{direction: ltr;}
+#d2{direction: rtl;}
+
+#ta1{text-align: left;}
+#ta2{text-align: right;}
+#ta3{text-align: center;}
+#ta4{text-align: justify;}
+
+#ti{text-indent: 100px;}
+
+.overflow-class{background: beige; width:500px;}
+.overflow-class>p{white-space: nowrap; overflow: hidden}
+#to1{text-overflow: clip;}
+#to2{text-overflow: ellipsis;}
+
+
+#default-bullet{list-style-type:  disc;}
+#circle-bullet{list-style-type: circle;}
+#square-bullet{list-style-type: square;}
+#none-bullet{list-style-type: none;}
+#default-number{list-style-type: decimal;}
+#zero-number{list-style-type: decimal-leading-zero;}
+#lower-rome-number{list-style-type: lower-roman;}
+#upper-rome-number{list-style-type: upper-roman;}
+#lower-alpha{list-style-type: lower-alpha;}
+#upper-alpha{list-style-type: upper-alpha;}
+
+#image-bullet{list-style-image: url(../sample/image/iconsample.PNG);}
+

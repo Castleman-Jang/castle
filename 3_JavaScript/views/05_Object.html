@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>객체</h1>
+    <h2>객체 선언 및 호출</h2>
+    <p>
+        중괄호 {}를 사용하여 객체를 생성하고, 속성에는 모든 자료형이 올 수 있음<br/>
+        객체를 키 값을 사용하여 속성 식별
+    </p>
+    <button onclick="basic();">실행확인</button>
+    <script>
+        const basic = () =>{
+            const product ={
+            pName:'Dry Mango',
+            type:'pickle',
+            ingredient:['mango','sugar'],
+            origin:'Philippines'
+            };
+            console.log(product);
+            //객체명['속성명']
+            console.log(product['pName']);
+            console.log(product['type']);
+            console.log(product['ingredient']);
+            console.log(product['origin']);
+            //객체명.속성명
+            console.log(product.pName);
+            console.log(product.type);
+            console.log(product.ingredient);
+            console.log(product.origin);
+
+            product.origin='Korea';
+
+        }
+        
+    </script>
+    <h3>객체의 I키 식별자 테스트</h3>
+    <p>
+        객체의 키는 모든 문자열 사용 가능<br/>
+        단, 식별자로 사용할 수 없는 단어를 키로 사용한 경우,무ㅠ조건 대괄호를 사용해야 객체의 요소에 접근 가능
+    </p>
+    <h2>객체 배열</h2>
+    <button onclick="objArr();">실행확인</button>
+    <script>
+        const objArr =() =>{
+            const student0 = {name: '차청춘', java: 90, oracle: 56, html: 93, css3: 44, javascript: 10};
+            const student1 = {name: '강건강', java: 45, oracle: 46, html: 40, css3: 56, javascript: 20};
+            const student2 = {name: '송성실', java: 59, oracle: 50, html: 70, css3: 95, javascript: 60};
+            const student3 = {name: '류라라', java: 99, oracle: 55, html: 85, css3: 23, javascript: 95};
+            const student4 = {name: '남나눔', java: 56, oracle: 67, html: 59, css3: 76, javascript: 55};
+            const student5 = {name: '윤예의', java: 66, oracle: 87, html: 56, css3: 85, javascript: 77};
+            const student6 = {name: '정재주', java: 86, oracle: 77, html: 56, css3: 85, javascript: 88};
+            const student7 = {name: '문미미', java: 56, oracle: 85, html: 19, css3: 34, javascript: 73};
+            const student8 = {name: '도대담', java: 20, oracle: 34, html: 50, css3: 82, javascript: 39};
+            const student9 = {name: '박보배', java: 83, oracle: 60, html: 20, css3: 90, javasciprt: 70};
+
+            const students = [];
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+            students.push(student3);
+            students.push(student4);
+            students.push(student5);
+            students.push(student6);
+            students.push(stuendt7);
+            students.push(student8);
+            students.push(student9);
+         
+            console.log(students)
+
+            for(const obj of students){
+                obj.getSum = function(){
+                    let sum = 0;
+                    for(const key in this){
+                        if(key != 'name' && key != 'getSum' && key != 'getAvg'){
+                            sum += obj[key];
+                        }
+                    }
+                    return sum;
+                }
+                obj.getAvg=function(){
+                    return this.getSum()/5
+                }
+                    console.log(`이름 :${obj.name}, 총점 : ${obj.getSum()}, 평균 : ${obj.getAvg()}`);
+            }
+        }
+    </script>
+</body>
+</html>

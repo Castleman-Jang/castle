@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>취미</legend>
+        <table>
+        <tr>
+            <td><input type="checkbox" name="category" id="all" value="전체선택" onclick="selectAll();">전체선택</td>
+            <td><input type="checkbox" name="category" id="total" value="종합" onclick="dd();">종합</td>
+            <td><input type="checkbox" name="category" id="fic" value="소설" onclick="dd();">소설</td>
+            <td><input type="checkbox" name="category" id="poem" value="시/에세이" onclick="dd();">시/에세이</td>
+            <td><input type="checkbox" name="category" id="econo" value="경제/경영" onclick="dd();">경제/경영</td>
+            <td><input type="checkbox" name="category" id="self" value="자기계발" onclick="dd();">자기계발</td>
+            <td><input type="checkbox" name="category" id="child" value="아동" onclick="dd();">아동</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" name="category" id="travel" value="여행" onclick="dd();">여행</td>
+            <td><input type="checkbox" name="category" id="sci" value="과학" onclick="dd();">과학</td>
+            <td><input type="checkbox" name="category" id="his" value="역사/문화" onclick="dd();">역사/문화</td>
+            <td><input type="checkbox" name="category" id="for" value="외국어" onclick="dd();">외국어</td>
+            <td><input type="checkbox" name="category" id="com" value="컴퓨터" onclick="dd();">컴퓨터</td>
+            <td><input type="checkbox" name="category" id="car" value="만화" onclick="dd();">만화</td>
+        </tr>
+        </table>
+
+    </fieldset>
+    <br/>
+    <button onclick="show();">카테고리 선택</button>
+    <div id="result"></div>
+
+    <script>
+        const show = () => {
+            var category = document.getElementsByName('category');
+            let ss = '';
+            for(var i = 1; i <category.length; i++){
+                if(category[i].checked){
+                    ss += category[i].value + ' ';
+                    document.getElementById('result');                                                           
+                }
+            }
+            document.getElementById('result').innerHTML = ss;
+            document.getElementById('result').style.border = '1px solid red'; 
+        }
+
+        const selectAll = () =>{
+            var selectAll = document.getElementById('all');
+            var category = document.getElementsByName('category');
+            if(selectAll.checked){
+                for(var i = 1; i < category.length; i++){
+                    category[i].checked = true;
+                    // console.log(category[i].checked);
+                }
+            } else{
+                for(var i = 0; i < category.length; i++){
+                    category[i].checked = false;
+                }
+            }
+        }
+        /*true가 12개가 되면 selectAll이 true가 된다 */
+        const dd = () =>{
+            var selectAll = document.getElementById('all');
+            var category = document.getElementsByName('category');
+            
+            var tr = 0;
+            for(var i = 1; i < category.length; i++){
+                // console.log(category[i].checked);
+                if(category[i].checked){
+                    tr++;
+                 if (tr == 12){
+                    selectAll.checked = true;
+                } else{
+                    selectAll.checked = false;
+                }
+                }
+            }console.log(tr);
+        }
+        
+
+
+    </script>
+
+
+    
+</body>
+</html>

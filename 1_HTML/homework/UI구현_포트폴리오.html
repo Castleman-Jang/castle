@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{margin: 0 auto;};
+        #result{border: 2px solid black;};
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th height="50px">너비 : </th>
+            <td width="200px"><input type="text" size="10" id="width">px</td>
+            <th>높이 : </th>
+            <td><input type="text" size="10" id="height">px</td>
+        </tr>
+        <tr>
+            <th height="50px">글자크기 : </th>
+            <td><input type="text" size="10" id="font-size">px</td>
+            <th>굵기 : </th>
+            <td><input type="radio" id="font-normal" name="font-weight" value="normal"/>
+                <label  for="font-normal">보통</label>
+                <input type="radio" id="font-bold" name="font-weight" value="bold"/>
+                <label for="font-bold">굵게</label>
+            </td>
+        </tr>
+        <tr>
+            <th height="50px">글자색 : </th>
+            <td><input type="text" id="font-color"></td>
+            <th>배경색 : </th>
+            <td><input type="text" id="bg-color" ></td>
+        </tr>
+        <tr>
+            <th height="50px">가로정렬 : </th>
+            <td colspan="3">
+                <label for="h-align-left">왼쪽</label>
+                <input type="radio" id="h-align-left" name="h-align" value="left">
+                <label for="h-align-center">가운데</label>
+                <input type="radio" id="h-align-center" name="h-align" value="center">
+                <label for="h-align-right">오른쪽</label>
+                <input type="radio" id="h-align-right" name="h-align" value="right">
+            </td>
+
+        </tr>
+        <tr>
+            <th height="50px">세로정렬 : </th>
+            <td colspan="3">
+                <label for="v-align-top">위</label>
+                <input type="radio" id="v-align-top" name="v-align" value="top">
+                <label for="v-align-mid">가운데</label>
+                <input type="radio" id="v-align-mid" name="v-align" value = "middle">
+                <label for="v-align-bottom">아래</label>
+                <input type="radio" id="v-align-bottom" name="v-align" value="bottom">
+            </td>
+        </tr>
+        <tr>
+            <th height="50px">출력 문자열 : </th>
+            <td colspan="3"><input type="text" style="width: 100%" id="output-text"></td>
+        </tr>
+        <tr>
+            <th colspan="4">
+                <button onclick="show();">적용하기</button>
+            </th>
+        </tr>
+    </table>
+    <table>
+    <td id="result" ></td>
+        </table>
+    <script>
+        function show(){
+            var width = document.getElementById('width').value;
+            var height = document.getElementById('height').value;
+            var font_size = document.getElementById('font-size').value;
+            var font_weight = document.getElementsByName('font-weight');
+            var h_align = document.getElementsByName('h-align');
+            var v_align = document.getElementsByName('v-align');
+            var output_text = document.getElementById('output-text').value;
+            var font_color = document.getElementById('font-color').value;
+            var bg_color = document.getElementById('bg-color').value;
+            let result1 = document.getElementById('result');
+            let result_weight = '';
+            let result_h_align = '';
+            let result_v_align = '';
+            /***************************************************************/
+            for(var i = 0; i < font_weight.length; i++){
+                if(font_weight[i].checked){
+                    // console.log(font_weight[i].value);
+                    result_weight = font_weight[i].value;                   
+                }
+            }           
+            for(var i = 0; i < h_align.length; i++){
+                if(h_align[i].checked){
+                    // console.log(h_align[i].value);
+                    result_h_align = h_align[i].value;
+                }
+            }
+            for(var i = 0; i < v_align.length; i++){
+                if(v_align[i].checked){
+                    // console.log(v_align[i].value);
+                    result_v_align = v_align[i].value;
+                }
+            }
+            result1.style.width=width + 'px';
+            result1.style.height=height + 'px';
+            result1.style.fontSize = font_size + 'px';
+            result1.style.fontWeight = result_weight;
+            result1.style.textAlign = result_h_align;
+            result1.style.verticalAlign = result_v_align;
+            result1.textContent = output_text;
+            result1.style.backgroundColor = bg_color;
+            result1.style.color = font_color;
+            
+
+
+            // console.log(width);
+            // console.log(height);
+            // console.log(font_size);
+            // console.log(result_weight);
+            // console.log(result_h_align);
+            // console.log(result_v_align);
+            // console.log(output_text);
+            // console.log(font_color);
+            // console.log(bg_color);
+            
+
+        }
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

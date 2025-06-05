@@ -1,0 +1,51 @@
+body{
+    background-color: DodgerBlue;
+    background-color: #1E90FF;
+}
+
+#div-bg{background-color: white; width:50%}
+
+.clip-test{
+    background-color: white;
+    margin: 30px; padding: 20px;
+    width: 20%; float: left; border: 5px dashed black;
+}
+
+#clip1{background-clip:  border-box;}
+#clip2{background-clip: padding-box;}
+#clip3{background-clip: content-box;}
+
+#bg-img{
+    border:1px solid black;
+    width: 70% ;height: 600px;
+
+    background-image: url('../sample/image/bgsample.PNG');
+
+    background-repeat: repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+
+    background-size: auto;
+    background-size: contain;
+    background-size: cover;
+    background-size: 150px 100px;
+    background-size: 80% 80%;
+
+    background-position: left top;
+    background-position: right top;
+    background-position: center top;
+    background-position: left bottom;
+    background-position: right bottom;
+    background-position: center bottom;
+    background-position: left center;
+    background-position: center center;
+    background-position: 30px 50px;
+
+    background-origin: border-box;
+    background-origin: padding-box;
+    background-origin: content-box;
+
+    background-attachment: scroll;
+    background-attachment: fixed;
+}

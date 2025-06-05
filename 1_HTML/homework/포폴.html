@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{margin: 0 auto;}
+    #inputText{width: 100%;}
+    th{height: 50px;}
+</style>
+<body>
+    <table>
+        <tr>
+            <th>너비 : </th>
+            <td><input type="text" id="inputWidth" size="6"/> px</td>
+            <td>높이 : </td>
+            <td><input type="text" id="inputHeight" size="6" /> px</td>
+        </tr>
+        <tr>
+            <th>글자크기 : </th>
+            <td><input type="text" id="inputFontSize" size="5" /> px</td>
+            <td>굵기 : </td>
+            <td>
+                <label for="fw_normal">보통</label><input type="radio" id="fw_normal" name="font_weight" value="normal"/>
+                <label for="fw_bold">굵게</label><input type="radio" id="fw_bold" name="font_weight" value="bold"/>
+            </td>
+        </tr>
+        <tr>
+            <th>글자색 : </th>
+            <td><input type="text" id="inputColor"/></td>
+            <th>배경색 : </th>
+            <td><input type="text" id="inputBgColor"/></td>
+        </tr>
+        <tr>
+            <th>가로정렬 : </th>
+            <td colspan="3">
+                <label for="h_left">왼쪽</label><input type="radio" id="h_left" name="horizontal" value="left"/>
+                <label for="h_center">가운데</label><input type="radio" id="h_center" name="horizontal" value="center"/>
+                <label for="h_right">오른쪽</label><input type="radio" id="h_right" name="horizontal" value="right"/>
+            </td>
+            
+        </tr>
+        <tr>
+            <th>세로정렬 : </th>
+            <td colspan="3">
+                <label for="v_top">위</label><input type="radio" id="v_top" name="vertical" value="top"/>
+                <label for="v_middle">가운데</label><input type="radio" id="v_middle" name="vertical" value="middle"/>
+                <label for="v_bottom">아래</label><input type="radio" id="v_bottom" name="vertical" value="bottom"/>
+            </td>
+        </tr>
+        <tr>
+            <th>출력문자열 : </th>
+            <td colspan="3">
+                <input type="text" id="inputText"/>
+            </td>
+        </tr>
+        <tr><th colspan="4"><button onclick="show();">적용하기</button></th></tr>
+    </table>
+    <table id="resultTable">
+        <tr>
+        <td id="result"></td>
+        </tr>
+        </table>
+    <script>
+        const show = () => {
+            var width = document.getElementById('inputWidth').value;
+            var height = document.getElementById('inputHeight').value;
+            var font_size = document.getElementById('inputFontSize').value;
+            var font_weight = document.getElementsByName('font_weight');
+            var font_color = document.getElementById('inputColor').value;
+            var bgColor = document.getElementById('inputBgColor').value;
+            var horizontal = document.getElementsByName('horizontal');
+            var vertical = document.getElementsByName('vertical');
+            var text = document.getElementById('inputText').value;
+            let showresult = document.getElementById('result');
+            let resultTable = document.getElementById('resultTable');
+            let fontWeight = '';
+            let hrzt = '';
+            let vtc = '';
+            /***************************************************************/
+            // console.log(width);
+            // console.log(height);
+            // console.log(font_size);
+            // console.log(font_weight);
+            // console.log(font_color);
+            // console.log(bgColor);
+            // console.log(horizontal);
+            // console.log(vertical);
+            // console.log(text);
+            /**************************************************************/
+            for(var i = 0; i < font_weight.length; i++){
+                if(font_weight[i].checked){                  
+                    fontWeight = font_weight[i].value;
+                }
+            }
+            for(var i = 0; i < horizontal.length; i++){
+                if(horizontal[i].checked){
+                    hrzt = horizontal[i].value;
+                }
+            }
+            for(var i = 0; i < vertical.length; i++){
+                if(vertical[i].checked){
+                    vtc = vertical[i].value;
+                }
+            }
+            /**************************************************************/
+            showresult.style.width = width + 'px';
+            showresult.style.height = height + 'px';
+            showresult.style.fontSize = font_size + 'px';
+            showresult.style.fontWeight = fontWeight;
+            showresult.style.color = font_color;
+            showresult.style.backgroundColor = bgColor;
+            showresult.style.textAlign = hrzt;
+            showresult.style.verticalAlign = vtc;
+            showresult.textContent = text;
+            resultTable.style.border = '3px solid black'
+            resultTable.style.borderSpacing = '0';
+        }
+    </script>
+</body>
+</html>
