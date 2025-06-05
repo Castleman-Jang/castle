@@ -1,0 +1,63 @@
+body{background:black; position: absolute;}
+.menu{color: rgb(234,92,36);}
+.logo-table{margin-left: 500px; z-index: 1;}
+
+#hw1{font-style: normal;}
+#club{font-size: 100px; color: white; font-style: italic; font-weight: bolder;}
+
+.subject{z-index: 0;}
+.f1{background-image: url("../source/bg.png"); background-attachment: fixed;}
+#if{z-index: 1; position: absolute; margin-top: -200px;}
+#if{background-attachment: fixed;}
+#logsImg:hover{transform: scale(1.5, 1.5);}
+#toUp{width: 50px; height: 50px; border: 5px; position: fixed; opacity: 0.3;}
+#toHome{width: 50px; height: 50px; border: 5px; position: fixed;}                        
+.option{margin-left: 900px;}
+#club1-1{font-size: 30px;}
+#logsImg{margin-left: 580px; border-radius: 40px;}
+#clubInfo1{text-decoration: none; color: rgb(234,92,36)}
+#playerInfo1{text-decoration: none; color:rgb(234,92,36)}
+#hl1{text-decoration: none; color:rgb(234,92,36)}
+#si1{text-decoration: none; color:rgb(234,92,36)}
+#club1-1{color: white;}
+#clubInfo1-1{margin-left: 580px;}
+.jmc{margin-left: auto;}
+#coment{margin-left: auto; font-style: oblique;}
+
+.ktg{margin-left: auto;}
+.pName{font-style: italic; color: rgb(234,92,36); text-shadow: -20px 20px 20px #fff;}
+
+.pNo{font-style: italic; font-weight: bolder; font-size: 300px;  color: white; position: absolute;
+    text-shadow: 20px 20px 50px #fff;}
+#p35{margin-left: 700px; opacity: 0.5;}
+#p23{margin-left: 700px; opacity: 0.5;}
+#p21{margin-left: 700px; opacity: 0.5;}
+#p52{margin-left: 700px; opacity: 0.5;}
+
+#el{font-size: 100px; border: 2px solid rgb(234,92,36); text-align: center;}
+#eh{font-size: 100px; border: 2px solid rgb(234,92,36); text-align: center;}
+
+#club{
+  font-family: "Happy Monkey", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+#ballparkInfo{margin-left: 300px;}
+#seat{font-size: 30px; color: white;}
+.bullet{list-style-type: square ;}
+
+li.a::marker{color: rgb(153, 152, 153);}
+li.b::marker{color: rgb(206, 83, 39);}
+li.c::marker{color: rgb(232, 141, 62);}
+li.d::marker{color: rgb(157, 49, 109);}
+li.e::marker{color: rgb(143, 161, 76);}
+li.f::marker{color: rgb(225, 147, 181);}
+li.g::marker{color: rgb(126, 206, 244);}
+li.h::marker{color: rgb(235, 97, 0);}
+li.i::marker{color: rgb(68, 92, 112);}
+li.j::marker{color: rgb(244, 214, 35);}
+li.k::marker{color: rgb(40, 69, 137);}
+li.l::marker{color: rgb(157, 39, 36);}
+li.m::marker{color: rgb(32, 119, 57);}
+li.n::marker{color: rgb(119, 181, 70);}
+
