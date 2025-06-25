@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice1 체크박스</title>
+    <link href="css/Practice1.css" type="text/css" rel="stylesheet">
+    <script src="js/Practice1Js.js"></script>
+</head>
+<body>
+    <h1>Practice1</h1>
+    <fieldset>
+        <legend>취미</legend>
+        <input type="checkbox" value="전체선택" name="selectall" id="selectall" onclick="selectall();"/><label>전체선택</label>
+        <input type="checkbox" value="종합" name="select" id="selectgen" onclick="selectV();"/><label>종합</label>
+        <input type="checkbox" value="소설" name="select" id="selectnov" onclick="selectV();"/><label>소설</label>
+        <input type="checkbox" value="시/에세이" name="select" id="selectpoe" onclick="selectV();"/><label>시/에세이</label>
+        <input type="checkbox" value="경제/경영" name="select" id="selecteco" onclick="selectV();"/><label>경제/경영</label>
+        <input type="checkbox" value="자기계발" name="select" id="selectsel" onclick="selectV();"/><label>자기계발</label>
+        <input type="checkbox" value="아동" name="select" id="selectkid" onclick="selectV();"/><label>아동</label> <br/>
+        <input type="checkbox" value="여행" name="select" id="selecttra" onclick="selectV();"/><label>여행</label>
+        <input type="checkbox" value="과학" name="select" id="selectsci" onclick="selectV();"/><label>과학</label>
+        <input type="checkbox" value="역사/문화" name="select" id="selectcul" onclick="selectV();"/><label>역사/문화</label>
+        <input type="checkbox" value="외국어" name="select" id="selectpri" onclick="selectV();"/><label>외국어</label>
+        <input type="checkbox" value="컴퓨터" name="select" id="selectcom" onclick="selectV();"/><label>컴퓨터</label>
+        <input type="checkbox" value="만화" name="select" id="selectcar" onclick="selectV();"/><label>만화</label>
+    </fieldset>
+    <button id="result" onclick="result()">카테고리 선택</button>
+    <div id="resultbox"></div>
+</body>
+</html>

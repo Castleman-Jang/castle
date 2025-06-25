@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <style>
+        .wrap *{border: 1px solid lightgray; display: block; padding: 5px; margin: 15px;}
+        .type{width: 500px;}
+    </style>
+</head>
+<body>
+    <h1>객체 탐색</h1>
+    <h2>탐색 메소드</h2>
+    <h3>Descendants메소드</h3>
+    <p>선택된 요소의 하위 요소들을 선택할 수 있는 메소드</p>
+    <div class="wrap">
+        <div class="type">div (greate-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span>span1</span>
+                </li>
+                <li>li (direct parent)
+                    <span>span2</span>
+                </li>
+            </ul>
+        </div>
+        <div class="type">div (greate-grandparent)
+            <p>p (direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(()=>{
+            const style1 = {'color':'red','border':'2px solid red'};
+            const style2 = {'color':'blue','border':'2px solid blue'};
+            const style3 = {'color':'green','border':'2px solid green'};
+            const style4 = {'color':'pink','border':'2px solid pink'};
+            const style5 = {'color':'orange','border':'2px solid orange'};
+
+            $('.wrap').children().css(style1);
+            $('.wrap').children().children().css(style2);
+            $('.wrap').children().children('ul').css(style3);
+            
+            // $('.wrap').children().children().children().children().css(style4);
+            // $('.wrap').children().children().children('span').css(style4);
+
+            $('.wrap').find('span').css(style4);
+
+            // span1, span2 한테만 주황색 css걸기
+
+            // $('.wrap').children().children().children().children().css(style5);
+            // $('li').children().css(style5);
+            // $('li').children().css(style5);
+            // $('.wrap').children().children().children('li').children().css(style5);
+            $('.wrap').find('li').children().css(style5);
+
+            const wrap = document.getElementsByClassName('wrap')[0];
+            console.log(wrap);
+            console.log(wrap.children);
+            //$('.wrap').children().css(style1);
+            for(const child of wrap.children){
+                child.style.border = '2px dashed red';
+
+                //$('.wrap').children().children().css(style2);
+                console.log(child.children[0]);
+                const childchildren = child.children[0];
+                childchildren.style.border = '2px dashed blue';
+            }
+
+            // console.log(wrap.children.children);
+
+            // $('.wrap').find('span').css(style4);
+            // document.getElementsByClassName('wrap');
+            // console.log(document.querySelector('.wrap'));
+            // console.log(document.querySelectorAll('.wrap'));
+
+            const spans = wrap.querySelectorAll('span');
+            console.log(spans);
+            for(const span of spans){
+                span.style.border = '2px dashed pink';
+            }
+
+        });
+    </script>
+    
+</body>
+</html>

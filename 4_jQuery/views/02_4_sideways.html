@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+    .wrap, .wrap *{border: 1px solid lightgray; display: block; padding: 5px; margin: 15px};
+</style>
+<body>
+    <h1>객체 탐색</h1>
+    <h2>탐색 메소드</h2>
+    <h3>Sideways 메소드</h3>
+    <div class="wrap">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <p>p</p>
+    </div>
+    <script>
+        $(()=>{
+            $('h4').siblings().css({'color':'red', 'border':'2px solid red'}); //h4 빼고 ?
+            $('h4').siblings('p').css({'color':'orange', 'border':'2px solid orange'}); //p만
+            $('h4').next().css({'color':'blue','border':'2px solid blue'}); // h4 의 다음
+            $('h4').nextAll().css('font-size','30px'); // h4 다음 전부 
+            $('h4').nextUntil('p').css('border','dashed'); 
+            $('h4').prev().css({'background':'red','color':'white'}); // 이전꺼
+            $('h4').prevAll().css({'background':'beige','color':'green'});
+            $('h4').prevUntil('p').css('border','double'); //p태그 이전꺼
+
+
+            // javascript 버전
+            const h4 = document.querySelector('h4');
+            // console.log(h4);
+            // $('h4').next().css({'color':'blue','border':'2px solid blue'});
+            
+            const next = h4.nextElementSibling;    
+            next.style.border = '2px dotted blue';        
+            // $('h4').prev().css({'background':'red','color':'white'});
+            const prev = h4.previousElementSibling;
+            prev.style.borderStyle = 'none';
+        })
+    </script>
+
+    <h2>객체 탐색 테스트</h2>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>취미</th>
+        </tr>
+        <tr>
+            <td>강건강</td>
+            <td>25</td>
+            <td>운동</td>
+        </tr>
+        <tr>
+            <td>남나눔</td>
+            <td>17</td>
+            <td>요리</td>
+        </tr>
+        <tr>
+            <td>도대담</td>
+            <td>30</td>
+            <td>등산</td>
+        </tr>
+    </table>
+        <label>선택한 게시물 : </label>
+        <label id="selectName"></label> / 
+        <label id="selectAge"></label> /
+        <label id="selectHobby"></label>
+    <script>
+        // table을 클릭하면 해당 행의 정보가 아래에 출력
+        $(()=>{
+            //jquery방식 $(선택자).click()
+            // td에 click()
+            // $('td').click(function(){
+            //     // console.log(this);
+            //     const tr = $(this).parent('tr');
+            //     // console.log(tds.children('td').eq(0).text());
+            //     const name = tr.children('td').eq(0).text();
+            //     const age = tr.children('td').eq(1).text();
+            //     const hobby = tr.children('td').eq(2).text();
+                
+            //     $('#selectName').text(name);
+            //     $('#selectAge').text(age);
+            //     $('#selectHobby').text(hobby);
+
+            // })
+
+
+
+
+            // tr에 click()
+/*            $('tr').click(function(){
+                             //화살표 안에서 this 는 window객체니까 화살표함수 말고 function으로
+                const tds = $(this).children('td');             //children 함수안에 인자를 넣어서'td' 들만 가져오겠다.
+                // console.log(tds);
+                // console.log(tds[0]);        // javascript형식
+                console.log(tds.eq(0));     // jquery 형식
+                const name = tds.eq(0).text();   // jquery에선 innerText말고 .text() 텍스트 함수로 뽑아와야됨
+                const age = tds.eq(1).text();
+                const hobby = tds.eq(2).text();
+
+                $('#selectName').text(name);
+                $('#selectAge').text(age);
+                $('#selectHobby').text(hobby);
+            });*/
+            
+
+          //javascript방식
+            // td에 onclick
+            // const tdArr = document.getElementsByTagName('td');
+            // let name = null;
+            // let age = null;
+            // let hobby = null;
+            // for(const td of tdArr){
+            //     td.onclick = function(){
+            //         console.log(this.innerText);
+            //         if(this.innerText == '강건강' || this.innerText == '25' || this.innerText == '운동'){
+            //             document.getElementById('selectName').innerHTML = '강건강';
+            //             document.getElementById('selectAge').innerHTML = '25';
+            //             document.getElementById('selectHobby').innerHTML = '운동';
+            //         }
+            //         if(this.innerText == '남나눔' || this.innerText == '17' || this.innerText == '요리'){
+            //             document.getElementById('selectName').innerHTML = '남나눔';
+            //             document.getElementById('selectAge').innerHTML = '17';
+            //             document.getElementById('selectHobby').innerHTML = '요리';
+            //         }
+            //         if(this.innerText == '도대담' || this.innerText == '30' || this.innerText == '등산'){
+            //             document.getElementById('selectName').innerHTML = '도대담';
+            //             document.getElementById('selectAge').innerHTML = '30';
+            //             document.getElementById('selectHobby').innerHTML = '등산';
+            //         }
+            //     }
+            // }
+
+            // td에 onclick 선생님버전
+  /*        const tdArr = document.getElementsByTagName('td');
+            // console.log(tdArr);
+            for(const td of tdArr){
+                td.onclick = function(){
+                    // console.log(this);
+                    const tr = this.parentElement;  // 해당 td의 부모한테 접근, 그럼 누른 td의 부모인 tr에 어떤 td가 있는지 확인가능
+                    console.log(tr);  
+                    const tds = tr.children;
+                //  document.getElementById('selectName').innerText = tds[0].innerText;
+                    document.querySelector('#selectName').innerText = tds[0].innerText;  //  쿼리셀렉터는 태그 붙여줘야 한댔으니까. id #
+                    document.getElementById('selectAge').innerText = tds[1].innerText;
+                    document.getElementById('selectHobby').innerText = tds[2].innerText;
+
+                }
+            }
+*/
+
+            // tr에 onclick
+/*            const trArr = document.getElementsByTagName('tr');
+            // console.log(trArr);
+            for(const tr of trArr){
+                tr.onclick = function(){
+                    // console.log(this);
+                    const tds = this.children;
+                    // console.log(tds);
+                    let name = null;
+                    let age = null;
+                    let hobby = null;
+                    if(tds[0].innerText !='이름'){
+                        // 사용자가 입력해서 가지고 온 값,  ex) input, textarea, select => value
+                        // 그 외, ex) td, div, p => innerText
+                        name = tds[0].innerText;
+                        age = tds[1].innerText;
+                        hobby = tds[2].innerText;
+                    }
+                    //querySelector <요소를 가지고 오는 함수, () 안에 인자는 선택자 기호가 들어가야 함, 아이디#인지 태그[]인지 ...
+                    // ㄴ 여러개가 있어도 처음 있는거,  querySelectorAll은 다 가져옴.
+                    document.querySelector('#selectName').innerText = name;
+                    document.querySelector('#selectAge').innerText = age;
+                    document.querySelector('#selectHobby').innerText = hobby;
+                }
+            } */
+            const tdArr = document.getElementsByTagName('td');
+            // console.log(tdArr);
+            for(const td of tdArr){
+                td.onclick = (e)=>{
+                    // console.log(e);
+                    const tr = e.target.parentElement;  // 해당 td의 부모한테 접근, 그럼 누른 td의 부모인 tr에 어떤 td가 있는지 확인가능
+                    console.log(tr);  
+                    const tds = tr.children;
+                //  document.getElementById('selectName').innerText = tds[0].innerText;
+                    document.querySelector('#selectName').innerText = tds[0].innerText;  //  쿼리셀렉터는 태그 붙여줘야 한댔으니까. id #
+                    document.getElementById('selectAge').innerText = tds[1].innerText;
+                    document.getElementById('selectHobby').innerText = tds[2].innerText;
+                }
+            }
+
+        })
+
+    </script>
+    
+    <h2>이벤트 관련 속성</h2>
+    <button onclick="eventTest(event);">실행확인</button>
+    <script>
+        const eventTest = (value) =>{
+            console.log(value);
+        }
+    </script>
+
+</body>
+</html>

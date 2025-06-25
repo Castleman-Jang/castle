@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>객체 탐색</h1>
+    <h2>필터링 메소드</h2>
+    <h4 class="test">test-a</h4>
+    <h4 class="test">test-b</h4>
+    <h4 class="test">test-c</h4>
+    <h4 class="test">test-d</h4>
+    <h4>test-e</h4>
+    <h4 class="test">test-f</h4>
+    <script>
+        //페이지가 로드되면 실행되는 메소드 작성
+        $(()=>{
+            const js = document.getElementsByTagName('h4');
+            const jq = $('h4');
+            console.log(js);
+            console.log(jq);
+            
+            for(const i of js){
+                //console.log(i);
+                console.log(i.innerHTML);
+            }
+            // console.log(jq.innerHTML);
+            for(const i of jq){
+                // console.log(i); //javascript형식으로 출려
+                console.log(i.innerHTML);
+            }
+            $('h4').filter(":even").css({'background':'tomato','color':'white'}); //(index상의)even짝수 odd 홀수 h4의 짝수번째들에
+            $('h4').first().css('font-size','30px');//h4태그중 첫번째에 
+            console.log($('h4').last()); //jquery형식으로 출력
+            // innerHTML = html() / innerText = text()
+            // console.log($('h4').last().text());
+            $('h4').last().text($('h4').last().text() + ' : 마지막 요소');
+
+            $('h4').eq(3).text($('h4').eq(3).text() + " : eq()로 필터링");
+            
+            $('h4').not('.test').css('background','yellow').css('color','black');
+            //클래스가 .test가 아닌 애들
+
+        })
+    </script>
+    
+</body>
+</html>

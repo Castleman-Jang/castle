@@ -34,11 +34,12 @@
             var 납품등급 = document.getElementById('grade').value;
             var 기타사항 = document.getElementById('etc').value;
 
-            document.getElementById('output').innerHTML = '구매자';
-            document.getElementById('output').innerHTML = '상품명';
-            document.getElementById('output').innerHTML = '가격';
-            document.getElementById('output').innerHTML = '구매수량';
-            document.getElementById('output').innerHTML = '납품등급';
+            document.getElementById('output').innerHTML = `구매자 명 : ${구매자}님<br/>
+                                                           상품명 : ${상품명}<br/>가격 : ${가격}원<br/>
+                                                           구매 수량 : ${구매수량}개<br/>
+                                                           납품 등급 : ${납품등급}등급<br/>
+                                                           기타 사항 : ${기타사항}`;
+
             
         }
     </script>

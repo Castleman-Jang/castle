@@ -1,0 +1,9 @@
+/* div[name=insert_box]{width: 600px} */
+h1[name=title]{padding:40px;}
+
+
+
+.c2{width:100px; float:left; padding:50px;}
+input[name=length]{width:110px;}
+input[name=height]{width:110px;}
+input[name=font_size]{width:100px;}
